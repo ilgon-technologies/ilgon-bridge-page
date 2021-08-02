@@ -31,6 +31,9 @@
           </button>
         </div>
       </div>
+      <div id='Or' class="row justify-content-center" style="display:none; font-size: 20px; font-weight: bold; color: #623a95; padding-top: 15px;">
+        Or
+      </div>
       <div class="row justify-content-center">
         <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12"
           style="width: 150px;text-align: center; color: #623a95; font-size: 20px; font-weight: bold;">
@@ -50,11 +53,12 @@
         <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch ">
 
           <div class="card full-width">
+
             <div id="LoadDiv" class="text-center mt-5" style="min-height: 280px; display: none;">
               <h3>Loading</h3>
               <div class="loader">Loading...</div>
             </div>
-            <div id="ReadyDiv" style="display: block;">
+            <div id="ReadyDiv" style="display: none;">
               <div class="card-body text-center">
                 <br>
                 <button class="btn btn-lg btn-block mb-3" id="IlgToTilg"
@@ -94,18 +98,20 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6">
-                    <button class="btn btn-sm btn-block mb-3" id="AddTilgBtn"
-                      style="background-color: #623a95;color:white;">
+                    <button  id="AddTilgBtn"
+                      style="background-color: #623a95;color:white; border-radius: 10px;">
                       Add WILG Token to your wallet
                     </button>
                   </div>
                 </div>
-
-                <div class="input-group mb-3">
+                <br>
+                <div>
                   <input style="margin:auto; text-align:center" class="form-control" id="transAmount" placeholder="Enter amount" type="number" >
-                  <div class="input-group-append">
-                    <button id="MaxBtn" class="input-group-text" style="background-color: #623a95;color:white;">max</button>
+                  <div id="MaxBtn" style="background-color: #623a95;color:white; margin-top: 0px; border-bottom-left-radius: 25px;
+                  border-bottom-right-radius: 25px; width: 100px; margin: auto; cursor: pointer">max</div>
                   </div>
+                  <div class="input-group-append">
+
                 </div>
 
                 <br>
@@ -144,6 +150,29 @@
                   style="background-color: #623a95;color:white; margin-top: 10px" disabled>
                   Send
                 </button>
+              </div>
+            </div>
+            <div id="QrDiv" style="display: none;">
+              <div class="card-body text-center">
+                <div style="font-size: 20px; font-weight: bold; color: #623a95; padding-top: 15px;">
+                  Swap tokens with your phone-app QR-scanner
+                </div>
+                <br>
+                <button class="btn btn-lg btn-block mb-3" id="IlgToTilgQr"
+                  style="background-color: #623a95;color:white;">
+                  Click here to swap WILG(Wrapped Ilgon) to ILG(Ilgon)
+                </button>
+                <button class="btn btn-lg btn-block mb-3" id="TilgToIlgQr"
+                  style="background-color: #623a95;color:white; ">
+                  Click here to swap ILG(Ilgon) to WILG(Wrapped Ilgon)
+                </button>
+                  <span id='QrCode'></span>
+                  <div id="QrInstr" style="color:#623a95; display: none;"> After scanning, pick 'Send to this address' from the options, and then select the right network.</div>
+                  <div>
+                </div>
+                <hr/>
+
+                
               </div>
             </div>
 
