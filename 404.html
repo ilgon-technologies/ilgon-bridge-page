@@ -9,6 +9,10 @@
   <link rel="shortcut icon" href="https://s2.coinmarketcap.com/static/img/coins/64x64/9918.png" />
   <link rel="icon" href="ilg_logo.png" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+          rel="stylesheet"
+  />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="index.css" type="text/css" />
@@ -16,38 +20,13 @@
 
 <body>
   <main class="container-fluid">
-    <header style="background:url('background.png')">
+    <header style="background:url('background.png');">
       <div id="logo-container">
         <h1 id="logo-text" class="text-center" style="color: white; height:300px">
           <br> ILGON BRIDGE
         </h1>
       </div>
     </header>
-    <section>
-      <div class="row justify-content-center">
-        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-          <button class="btn btn-lg btn-block mb-3" id="metamask" style="background-color: #623a95;color:white;">
-            Click here to install metamask
-          </button>
-        </div>
-      </div>
-      <div id='Or' class="row justify-content-center" style="display:none; font-size: 20px; font-weight: bold; color: #623a95; padding-top: 15px;">
-        Or
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12"
-          style="width: 150px;text-align: center; color: #623a95; font-size: 20px; font-weight: bold;">
-          <span id="reload">
-          </span>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="row d-flex justify-content-center">
-        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-        </div>
-      </div>
-    </section>
     <section>
       <div class="row justify-content-center">
         <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12 d-flex align-items-stretch ">
@@ -70,7 +49,8 @@
                   Click here to swap ILG(Ilgon) to WILG(Wrapped Ilgon)
                 </button>
                 <hr />
-
+                <div id= "toggleBox" style="display: none">
+                <img class=arrow style='width:100px;  ' src="arrow.png" alt="Italian Trulli">
                 <div class="d-flex justify-content-center">
                   <div class="p-2"
                     style="width: 50px; height: 100px; justify-content: center; align-items: center; display: flex;">
@@ -82,8 +62,8 @@
                     <span id="from">
                     </span>
                   </div>
-                  <div class="p-2" style="height: 100px; justify-content: center; align-items: center; display: flex;">
-                    <img class=arrow style='width:30px;' src="double_arrow.png" alt="Italian Trulli">
+                  <div class="p-2" style="padding: 0px;  justify-content: center; align-items: center; display: flex; flex-direction: column;">
+                    <img id='convert' style='width:30px; cursor: pointer;' src="convert.png" alt="Italian Trulli">
                   </div>
                   <div class="p-2"
                     style="width: 100px; height: 100px; justify-content: center; align-items: center; display: flex;">
@@ -100,13 +80,13 @@
                   <div class="col-md-6">
                     <button  id="AddTilgBtn"
                       style="background-color: #623a95;color:white; border-radius: 10px;">
-                      Add WILG Token to your wallet
+                      <div style="display:flex; justify-content:center"><div>Add WILG Token to your Metamask wallet </div><div><img style="width: 30px; padding-top:7px" src="metamask.png" alt=""></div></div>
                     </button>
                   </div>
                 </div>
                 <br>
                 <div>
-                  <input style="margin:auto; text-align:center" class="form-control" id="transAmount" placeholder="Enter amount" type="number" >
+                  <input autocomplete= 'off' style="margin:auto; text-align:center" class="form-control" id="transAmount" placeholder="Enter amount" type="number" >
                   <div id="MaxBtn" style="background-color: #623a95;color:white; margin-top: 0px; border-bottom-left-radius: 25px;
                   border-bottom-right-radius: 25px; width: 100px; margin: auto; cursor: pointer">max</div>
                   </div>
@@ -116,32 +96,35 @@
 
                 <br>
                 <div class="row">
-                  <div class="col">
+                  <div class="col-sm">
                     Current Chain:
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm">
                     <span id="currentChain">
                     </span>
                   </div>
                 </div>
+                <hr>
                 <div class="row">
-                  <div class="col">
+                  <div class="col-sm">
                     Current Account balance:
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm">
                     <span id="accountBalance">
                     </span>
                   </div>
                 </div>
+                <hr>
                 <div class="row">
-                  <div class="col">
+                  <div class="col-sm">
                     Final amount with swap fee:
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-sm">
                     <span id="swapFee">
                     </span>
                   </div>
                 </div>
+                <br>
                 <div>
                   <span id="Error">
                   </span>
@@ -152,34 +135,112 @@
                 </button>
               </div>
             </div>
-            <div id="QrDiv" style="display: none;">
-              <div class="card-body text-center">
-                <div style="font-size: 20px; font-weight: bold; color: #623a95; padding-top: 15px;">
-                  Swap tokens with your phone-app QR-scanner
+
+
+          </div>
+          <div id="QrDiv" style="display: none;">
+            <div class="card-body text-center">
+              <div style="font-size: 20px; font-weight: bold; color: #623a95; padding-top: 15px;">
+                Swap tokens with your phone-app QR-scanner
+              </div>
+              <br>
+              <button data-options="scrolltop:false;" class="btn btn-lg btn-block mb-3" id="IlgToTilgQr"
+                style="background-color: #623a95;color:white;">
+                Click here to swap ILG(Ilgon) to WILG(Wrapped Ilgon)
+              </button>
+              <button data-options="scrolltop:false;" class="btn btn-lg btn-block mb-3" id="TilgToIlgQr"
+                style="background-color: #623a95;color:white; ">
+                Click here to swap WILG(Wrapped Ilgon) to ILG(Ilgon)
+              </button>
+                <span id='QrCode'></span>
+                <div id="CopyDiv">
+                  <span id="ContractAddress"></span>
+                  <i id="CopyIcon" class="far fa-copy"></i>
+                </div>
+                <div id="WarningMsg" style="font-weight: bold; color:red; display: none">
+                  Make sure that you are using the <span id="WarningMsgFromNetwork"></span> network when sending funds to the
+                  address above. Do not send any other asset than <span id="WarningMsgAsset"></span> to the addess as it
+                  can't be recovered.
+                </div>
+                <div id="QrInstr" style="color:#623a95; display: none;"> After scanning, pick 'Send to this address' from the options, and then select the right network. 
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm" style="font-weight: bold; color: #623a95;">
+                      Calculate the final transfer amount here:
+                    </div>
                 </div>
                 <br>
-                <button class="btn btn-lg btn-block mb-3" id="IlgToTilgQr"
-                  style="background-color: #623a95;color:white;">
-                  Click here to swap WILG(Wrapped Ilgon) to ILG(Ilgon)
-                </button>
-                <button class="btn btn-lg btn-block mb-3" id="TilgToIlgQr"
-                  style="background-color: #623a95;color:white; ">
-                  Click here to swap ILG(Ilgon) to WILG(Wrapped Ilgon)
-                </button>
-                  <span id='QrCode'></span>
-                  <div id="QrInstr" style="color:#623a95; display: none;"> After scanning, pick 'Send to this address' from the options, and then select the right network.</div>
-                  <div>
+                  <div class="row">
+                    <input autocomplete= 'off' style="margin:auto; text-align:center; width: 300px" class="form-control" id="calcAmount" placeholder="Enter amount" type="number" >
+                  </div>
+                  <div class="row">                    
+                    <div class="col-sm">
+                    <br>
+                    Final amount with swap fee:
+                  </div>
+                  <div class="col-sm">
+                    <br>
+                    <span id="calcFee">
+                    </span>
+                  </div>
+                    
                 </div>
-                <hr/>
-
-                
+                <hr>
+                <div style="font-weight: bold; color:red;"> Please note, that the validation of your transfer might thake 5 minutes!</div>
+                  </div>
+                <br>
               </div>
-            </div>
 
+              
+            </div>
           </div>
         </div>
       </div>
     </section>
+    <section>
+      <div class="row justify-content-center">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+          <button class="btn btn-lg btn-block mb-3" id="swap_phone" style="background-color: #623a95;color:white;">
+            Swap tokens with your phone
+          </button>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="row justify-content-center">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+          <button class="btn btn-lg btn-block mb-3" id="swap_metamask" style="background-color: #623a95;color:white;">
+            Swap tokens with metamask
+          </button>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="row justify-content-center">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+          <button class="btn btn-lg btn-block mb-3" id="metamask" style="display:none; background-color: #623a95;color:white;">
+            Click here to install metamask
+          </button>
+        </div>
+      </div>
+      <div id='Or' class="row justify-content-center" style="display:none; font-size: 20px; font-weight: bold; color: #623a95; padding-top: 15px;">
+        Or
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12"
+          style="width: 150px;text-align: center; color: #623a95; font-size: 20px; font-weight: bold;">
+          <span id="reload">
+          </span>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="row d-flex justify-content-center">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+        </div>
+      </div>
+    </section>
+
   </main>
   <script src="bundle.js" defer>
   </script>

@@ -1,3 +1,5 @@
+button
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -25,6 +27,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 #logo-container {
@@ -107,4 +110,17 @@ header {
     box-shadow: 0 -2em;
     height: 5em;
   }
+}
+
+#CopyDiv {
+  display: none;
+  cursor: pointer;
+}
+#ContractAddress {
+  font-size: xx-large;
+  font-weight: 500;
+}
+#CopyIcon {
+  font-size: xx-large;
+  border: 1px dotted;
 }
