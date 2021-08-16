@@ -78,6 +78,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6">
+                    <br>
                     <button  id="AddTilgBtn"
                       style="background-color: #623a95;color:white; border-radius: 10px;">
                       <div style="display:flex; justify-content:center"><div>Add WILG Token to your Metamask wallet </div><div><img style="width: 30px; padding-top:7px" src="metamask.png" alt=""></div></div>
@@ -140,69 +141,87 @@
           </div>
           <div id="QrDiv" style="display: none;">
             <div class="card-body text-center">
-              <div style="font-size: 20px; font-weight: bold; color: #623a95; padding-top: 15px;">
-                Swap tokens with your phone-app QR-scanner
-              </div>
-              <br>
               <button data-options="scrolltop:false;" class="btn btn-lg btn-block mb-3" id="IlgToTilgQr"
                 style="background-color: #623a95;color:white;">
                 Click here to swap ILG(Ilgon) to WILG(Wrapped Ilgon)
               </button>
               <button data-options="scrolltop:false;" class="btn btn-lg btn-block mb-3" id="TilgToIlgQr"
-                style="background-color: #623a95;color:white; ">
+                style="background-color: #623a95;color:white;">
                 Click here to swap WILG(Wrapped Ilgon) to ILG(Ilgon)
               </button>
+              <div id='simple' style="font-weight: bold; display: none; flex-direction:column;">
+                The bridging will only take a simple transaction.
+                <img class=arrow style='width:100px; margin:auto; margin-top: 10px; ' src="arrow.png" alt="Italian Trulli">
+                <div id="convertbox" class="d-flex justify-content-center">
+                  <div class="p-2"
+                    style="width: 50px; height: 100px; justify-content: center; align-items: center; display: flex;">
+                    <span id="fromTextQR">
+                    </span>
+                  </div>
+                  <div class="p-2"
+                    style="width: 100px; height: 100px; justify-content: center; align-items: center; display: flex;">
+                    <span id="fromQR">
+                    </span>
+                  </div>
+                  <div class="p-2" style="padding: 0px;  justify-content: center; align-items: center; display: flex; flex-direction: column;">
+                    <img id='convertQr' style='width:30px; cursor: pointer;' src="convert.png" alt="Italian Trulli">
+                  </div>
+                  <div class="p-2"
+                    style="width: 100px; height: 100px; justify-content: center; align-items: center; display: flex;">
+                    <span id="toQR">
+                    </span>
+                  </div>
+                  <div class="p-2"
+                    style="width: 50px; height: 100px; justify-content: center; align-items: center; display: flex;">
+                    <span id="toTextQR">
+                    </span>
+                  </div>
+                </div>
+              </div>
+
                 <span id='QrCode'></span>
                 <div id="CopyDiv">
                   <span id="ContractAddress"></span>
                   <i id="CopyIcon" class="far fa-copy"></i>
                 </div>
+                <br id='br1' style="display: none;">
                 <div id="WarningMsg" style="font-weight: bold; color:red; display: none">
                   Make sure that you are using the <span id="WarningMsgFromNetwork"></span> network when sending funds to the
                   address above. Do not send any other asset than <span id="WarningMsgAsset"></span> to the addess as it
                   can't be recovered.
                 </div>
-                <div id="QrInstr" style="color:#623a95; display: none;"> After scanning, pick 'Send to this address' from the options, and then select the right network. 
+                <br id='br2' style="display: none;">
+                <div id="QrInstr" style="color:#623a95; display: none;"> After scanning, pick '<span style="font-weight: bold;">Send to this address</span>' from the options, and then select the right network. 
                   <hr>
                   <div class="row">
                     <div class="col-sm" style="font-weight: bold; color: #623a95;">
-                      Calculate the final transfer amount here:
+                      The amount of assets you wish to receive:
                     </div>
                 </div>
-                <br>
+                <br id='br3' style="display: none;">
                   <div class="row">
                     <input autocomplete= 'off' style="margin:auto; text-align:center; width: 300px" class="form-control" id="calcAmount" placeholder="Enter amount" type="number" >
                   </div>
                   <div class="row">                    
                     <div class="col-sm">
-                    <br>
-                    Final amount with swap fee:
+                    <br id='br4' style="display: none;">
+                    The amount of assets you have to transfer:
                   </div>
                   <div class="col-sm">
-                    <br>
+                    <br id='br5' style="display: none;">
                     <span id="calcFee">
                     </span>
                   </div>
                     
                 </div>
                 <hr>
-                <div style="font-weight: bold; color:red;"> Please note, that the validation of your transfer might thake 5 minutes!</div>
+                <div style="font-weight: bold; color:red;"> Please note, that the validation of your transfer might take 5 minutes!</div>
                   </div>
-                <br>
               </div>
 
               
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="row justify-content-center">
-        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
-          <button class="btn btn-lg btn-block mb-3" id="swap_phone" style="background-color: #623a95;color:white;">
-            Swap tokens with your phone
-          </button>
         </div>
       </div>
     </section>
@@ -215,6 +234,16 @@
         </div>
       </div>
     </section>
+    <section>
+      <div class="row justify-content-center">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+          <button class="btn btn-lg btn-block mb-3" id="swap_phone" style="background-color: #623a95;color:white;">
+            Swap token with other digital wallets
+          </button>
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="row justify-content-center">
         <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
